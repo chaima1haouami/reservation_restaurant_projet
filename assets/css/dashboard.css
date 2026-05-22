@@ -1,0 +1,375 @@
+/* ============================================================
+   dashboard.css — Style dédié au Dashboard Admin
+   Compatible avec admin.css (sans modifier les autres pages)
+============================================================ */
+
+/* ============================================================
+   WRAPPER
+============================================================ */
+.admin-wrapper {
+    max-width: 1400px;
+}
+
+
+/* ============================================================
+   HEADER DASHBOARD
+============================================================ */
+.dashboard-title {
+    text-align: center;
+    color: var(--or);
+    margin: 10px 0 35px;
+    font-family: var(--font-title);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+}
+
+.dashboard-subtitle {
+    text-align: center;
+    color: var(--gris);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+
+/* ============================================================
+   FILTER BOX
+============================================================ */
+.filter-box {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.filter-box input[type="date"] {
+    min-width: 180px;
+    padding: 12px 16px;
+    background: var(--noir2);
+    border: 1px solid rgba(201,167,107,.15);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 13px;
+    outline: none;
+    transition: var(--t);
+}
+
+.filter-box input[type="date"]:focus {
+    border-color: var(--or);
+    box-shadow: 0 0 0 3px rgba(201,167,107,.06);
+}
+
+.filter-box button,
+.reset-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border: 1px solid var(--or);
+    background: transparent;
+    color: var(--or);
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--t);
+    text-decoration: none;
+}
+
+.filter-box button:hover,
+.reset-btn:hover {
+    background: var(--or);
+    color: var(--noir);
+}
+
+
+/* ============================================================
+   KPI CARDS
+============================================================ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-bottom: 45px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--noir2), var(--noir3));
+    border: 1px solid rgba(201,167,107,.12);
+    padding: 30px;
+    transition: var(--t);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--or), var(--or-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--t);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        rgba(201,167,107,.08),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,167,107,.3);
+    box-shadow: var(--shadow-gold);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    opacity: .95;
+    position: relative;
+    z-index: 1;
+}
+
+.card h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: clamp(42px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--or);
+}
+
+.card p {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gris);
+}
+
+
+/* ============================================================
+   INFO GRID
+============================================================ */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 0 0 45px;
+}
+
+.info-box {
+    position: relative;
+    background: var(--noir2);
+    border: 1px solid rgba(201,167,107,.1);
+    padding: 24px;
+    transition: var(--t);
+}
+
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 36px;
+    height: 36px;
+    border-top: 2px solid var(--or);
+    border-left: 2px solid var(--or);
+}
+
+.info-box:hover {
+    border-color: rgba(201,167,107,.22);
+    box-shadow: var(--shadow-gold);
+}
+
+.info-box p {
+    margin: 0 0 8px;
+    color: var(--gris);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.info-box h3 {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 300;
+    color: var(--blanc);
+    line-height: 1.2;
+}
+
+
+/* ============================================================
+   SECTION TITLES
+============================================================ */
+.dashboard-section-title {
+    margin: 0 0 18px;
+    text-align: center;
+    font-family: var(--font-title);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 300;
+    color: var(--or);
+}
+
+
+/* ============================================================
+   BAR CHART
+============================================================ */
+.chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    min-height: 240px;
+    padding: 28px 20px 20px;
+    background: var(--noir2);
+    border: 1px solid rgba(201,167,107,.1);
+    margin-bottom: 45px;
+    overflow-x: auto;
+}
+
+.chart-item {
+    flex: 1;
+    min-width: 70px;
+    text-align: center;
+}
+
+.chart-value {
+    font-size: 11px;
+    color: var(--or);
+    margin-bottom: 6px;
+}
+
+.chart-bar {
+    width: 100%;
+    min-height: 6px;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(180deg, var(--or-light), var(--or));
+    box-shadow: 0 0 18px rgba(201,167,107,.18);
+    transition: var(--t);
+}
+
+.chart-item:hover .chart-bar {
+    filter: brightness(1.08);
+    transform: scaleY(1.02);
+}
+
+.chart-label {
+    margin-top: 8px;
+    font-size: 10px;
+    line-height: 1.35;
+    color: var(--gris);
+}
+
+
+/* ============================================================
+   TABLE ENHANCEMENT
+============================================================ */
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container .admin-table tbody tr:first-child td:first-child {
+    color: var(--or);
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+============================================================ */
+.dashboard-empty {
+    padding: 30px;
+    text-align: center;
+    background: var(--noir2);
+    border: 1px solid rgba(201,167,107,.1);
+    color: var(--gris);
+    margin-bottom: 40px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-box {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart {
+        min-height: 220px;
+        gap: 10px;
+        padding: 22px 14px 14px;
+    }
+
+    .chart-item {
+        min-width: 60px;
+    }
+
+    .filter-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-box input[type="date"],
+    .filter-box button,
+    .reset-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .info-box {
+        padding: 22px;
+    }
+
+    .dashboard-title {
+        margin-bottom: 28px;
+    }
+
+    .dashboard-subtitle {
+        margin-top: -12px;
+        margin-bottom: 30px;
+    }
+}

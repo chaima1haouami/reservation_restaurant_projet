@@ -1,0 +1,184 @@
+
+body {
+    font-family: var(--font-body);
+    background: var(--noir);
+    margin: 0;
+}
+
+/* IMPORTANT pour navbar fixed */
+.form-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 90px;
+}
+/* ── FOND PAGE */
+
+
+/* ── CARTE  */
+.form-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 52px 44px;
+    background: var(--noir2);
+    border: 1px solid rgba(201,167,107,.18);
+    position: relative;
+    overflow: hidden;
+}
+
+/* trait or en haut de la carte */
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--or), transparent);
+    pointer-events: none;
+}
+
+/* ── BADGE ───────────────────────────────────────────────── */
+.login-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1px solid rgba(201,167,107,.4);
+    color: var(--or);
+    border-radius: 30px;
+    font-size: 9px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* ── TITRE ───────────────────────────────────────────────── */
+.form-card h2 {
+    font-family: var(--font-title);
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--blanc);
+    margin-bottom: 6px;
+    letter-spacing: .5px;
+    line-height: 1.1;
+}
+.form-card h2 em {
+    font-style: italic;
+    color: var(--or-light);
+}
+
+/* ── SOUS-TITRE ──────────────────────────────────────────── */
+.form-subtitle {
+    color: var(--gris);
+    font-size: 12.5px;
+    font-weight: 300;
+    letter-spacing: .5px;
+    margin-bottom: 32px;
+}
+
+.divider-gold {
+    width: 36px; height: 1px;
+    background: var(--or);
+    margin: 0 0 32px;
+}
+
+/* ── CHAMPS ──────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--gris2);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--noir3);
+    border: 1px solid rgba(201,167,107,.14);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 300;
+    outline: none;
+    transition: var(--t);
+    border-radius: 0;
+}
+.form-group input::placeholder {
+    color: var(--gris);
+}
+.form-group input:focus {
+    border-color: rgba(201,167,107,.55);
+    background: var(--noir4);
+}
+
+/* ── BOUTON ──────────────────────────────────────────────── */
+.btn-lux {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--or);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+    transition: var(--t);
+}
+.btn-lux::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--or);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .45s var(--ease);
+    z-index: 0;
+}
+.btn-lux span  { position: relative; z-index: 1; }
+.btn-lux:hover { color: var(--noir); }
+.btn-lux:hover::before { transform: scaleX(1); }
+
+/* ── ERREUR ──────────────────────────────────────────────── */
+.alert-error {
+    border: 1px solid rgba(201,107,107,.3);
+    background: rgba(201,107,107,.07);
+    color: #e8a0a0;
+    padding: 12px 16px;
+    font-size: 12px;
+    letter-spacing: .5px;
+    margin-bottom: 20px;
+}
+
+/* ── LIEN BAS ────────────────────────────────────────────── */
+.form-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--gris);
+    letter-spacing: .5px;
+}
+.form-link a {
+    color: var(--or);
+    text-decoration: none;
+    transition: var(--t);
+}
+.form-link a:hover { color: var(--or-light); }
+
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .form-card {
+        padding: 36px 26px;
+    }
+    .form-card h2 {
+        font-size: 30px;
+    }
+}
